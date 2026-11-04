@@ -1,50 +1,98 @@
 <!doctype html>
-<html lang="en">
+<!--
+  ═══════════════════════════════════════════════════════════════════════════════
+  Legacy Designs — homepage file (Vite entry: index.html, repo root)
+
+  This is the file Google fetches to verify Search Console. The verification meta
+  tag is on line ~13, inside <head>, before <body>.
+
+  ⚠️  DO NOT DELETE the verification tag after verifying — removing it can
+      un-verify the property and you lose the Search Console history view.
+
+  ⚠️  If you already have an index.html, this REPLACES it. Check that
+      <script src="/src/main.tsx"> points at your real entry file, and that
+      your own classes/fonts/analytics are still there.
+  ═══════════════════════════════════════════════════════════════════════════════
+-->
+<html lang="en-IN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0b0b0a" />
-    <title>Shreyas Kapase — Website Designer &amp; Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- ─── Google Search Console verification ─────────────────────────────── -->
+    <meta name="google-site-verification" content="QOjRKMcYq_fazu33FYDXZ1Kw3OfNHOIa_3vqg0tx6ao" />
+
+    <!-- ─── Primary SEO tags ───────────────────────────────────────────────── -->
+    <title>Website Design &amp; SEO Agency in Kolhapur | Legacy Designs</title>
     <meta
       name="description"
-      content="Shreyas Kapase is a website designer and developer crafting premium, business-focused websites. Featured case study: Trimurti IT Solutions — a complete digital presence for an IT services company in Kolhapur."
+      content="Legacy Designs builds fast, SEO-ready websites for Kolhapur businesses — design, development and SEO under one roof. Get a free quote on WhatsApp today."
     />
-    <meta name="author" content="Shreyas Kapase" />
-    <link rel="canonical" href="https://shreyaskapase.com/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Legacy Designs" />
+    <meta name="theme-color" content="#0b0b0a" />
 
+    <!-- ─── Icons & manifest ───────────────────────────────────────────────── -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon-180.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- ─── Open Graph / social preview ────────────────────────────────────── -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Shreyas Kapase — Website Designer &amp; Developer" />
+    <meta property="og:site_name" content="Legacy Designs" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Website Design &amp; SEO Agency in Kolhapur | Legacy Designs" />
     <meta
       property="og:description"
-      content="I build websites that make businesses impossible to ignore. Case study: Trimurti IT Solutions."
+      content="Fast, SEO-ready websites for Kolhapur businesses. Design, development and SEO under one roof."
     />
-    <meta property="og:image" content="/work/hero-desktop.webp" />
+    <meta property="og:image" content="/og/home.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Websites that turn Kolhapur browsers into paying customers" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Website Design &amp; SEO Agency in Kolhapur | Legacy Designs" />
+    <meta
+      name="twitter:description"
+      content="Fast, SEO-ready websites for Kolhapur businesses. Design, development and SEO under one roof."
+    />
+    <meta name="twitter:image" content="/og/home.jpg" />
 
-    <link rel="icon" href="./favicon.png" type="image/png" />
-    <link rel="apple-touch-icon" href="./profile/avatar-180.webp" />
-    <link rel="preload" href="/fonts/clash-display-500.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- ─── Preconnects (delete any you don't use) ─────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
+    <!-- ─── Organization schema (static, works before React runs) ──────────── -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Shreyas Kapase",
-        "jobTitle": "Website Designer & Developer",
-        "url": "https://shreyaskapase.com/",
-        "sameAs": ["https://www.instagram.com/itsrey.in"],
-        "knowsAbout": ["Website Design", "Website Development", "Business Websites", "E-commerce"],
-        "workExample": {
-          "@type": "WebSite",
-          "name": "Trimurti IT Solutions",
-          "url": "https://trimurtiit.in"
-        }
+        "@type": "Organization",
+        "name": "Legacy Designs",
+        "description": "Website design, development and SEO management in Kolhapur, Maharashtra.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kolhapur",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN"
+        },
+        "areaServed": ["Kolhapur", "Ichalkaranji", "Sangli", "Karad"]
       }
     </script>
   </head>
   <body>
     <div id="root"></div>
+
+    <noscript>
+      <h1>Legacy Designs — website design, development and SEO in Kolhapur</h1>
+      <p>
+        We build fast, SEO-ready websites for hospitals, restaurants, boutiques, manufacturers and service
+        businesses across Kolhapur, Ichalkaranji and Sangli.
+      </p>
+      <p>Enable JavaScript to view the portfolio, or call or WhatsApp us to enquire.</p>
+    </noscript>
+
+    <!-- ⚠️ Point this at YOUR entry file (main.tsx / main.tsx / index.tsx) -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
