@@ -1,0 +1,322 @@
+@import 'tailwindcss';
+
+/* ── Self-hosted typefaces ───────────────────────────────────────── */
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/clash-display-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/clash-display-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/clash-display-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-300.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/jetbrains-mono-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/jetbrains-mono-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Real typefaces used on the Trimurti IT Solutions build — used for the case-study specimen */
+@font-face {
+  font-family: 'PJS Specimen';
+  src: url('/fonts/plus-jakarta-sans-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter Specimen';
+  src: url('/fonts/inter-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-display: 'Clash Display', 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: 'Satoshi', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+  --font-pjs: 'PJS Specimen', 'Helvetica Neue', Arial, sans-serif;
+  --font-inter: 'Inter Specimen', 'Helvetica Neue', Arial, sans-serif;
+
+  --color-ink: #0b0b0a;
+  --color-ink-2: #141412;
+  --color-ink-3: #1e1e1a;
+  --color-paper: #f2f0ea;
+  --color-paper-2: #e8e5dc;
+  --color-paper-3: #ddd9ce;
+  --color-mut: #6f6c63;
+  --color-mut-2: #9a968c;
+  --color-line: #d5d1c6;
+  --color-brand: #1e3f96;
+  --color-leaf: #8cc63f;
+
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  a,
+  button {
+    cursor: none;
+  }
+
+  @media (pointer: coarse) {
+    a,
+    button {
+      cursor: auto;
+    }
+  }
+
+  :focus-visible {
+    outline: 1.5px solid var(--color-brand);
+    outline-offset: 3px;
+  }
+
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+  }
+}
+
+/* ── Layout helpers ──────────────────────────────────────────────── */
+@utility shell {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: clamp(1.15rem, 4.2vw, 5rem);
+  max-width: 1760px;
+}
+
+@utility label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+@utility display-xl {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+@utility hairline {
+  border-top: 1px solid color-mix(in srgb, var(--color-line) 100%, transparent);
+}
+
+/* ── Surfaces / texture ──────────────────────────────────────────── */
+.grid-lines {
+  background-image:
+    linear-gradient(to right, rgba(11, 11, 10, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 11, 10, 0.055) 1px, transparent 1px);
+  background-size: 88px 88px;
+}
+
+.grid-lines-dark {
+  background-image:
+    linear-gradient(to right, rgba(242, 240, 234, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(242, 240, 234, 0.055) 1px, transparent 1px);
+  background-size: 88px 88px;
+}
+
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0.32;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.outline-type {
+  color: transparent;
+  -webkit-text-stroke: 1.25px var(--outline, #d5d1c6);
+  paint-order: stroke fill;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+
+/* ── Interaction flourishes ──────────────────────────────────────── */
+.link-line {
+  position: relative;
+}
+.link-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.55s var(--ease-editorial);
+}
+.link-line:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-x var(--dur, 34s) linear infinite;
+  will-change: transform;
+}
+.marquee-track.reverse {
+  animation-direction: reverse;
+}
+.marquee-host:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes blink-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.82);
+  }
+}
+.live-dot {
+  animation: blink-dot 2.4s ease-in-out infinite;
+}
+
+@keyframes scroll-hint {
+  0% {
+    transform: translateY(-100%);
+  }
+  55%,
+  100% {
+    transform: translateY(100%);
+  }
+}
+.scroll-hint::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  animation: scroll-hint 2.2s var(--ease-editorial) infinite;
+}
+
+/* cursor */
+@media (pointer: coarse) {
+  .cursor-layer {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
